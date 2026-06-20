@@ -71,6 +71,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.3.5"
+          bundler-version: "4.0.6"
           bundler-cache: true
       - name: Setup Python 🐍
         uses: actions/setup-python@v5
@@ -110,13 +111,6 @@ jobs:
           BUNDLER_VERSION=${BUNDLER_VERSION:-"4.0.6"}
           echo "Using bundler version: $BUNDLER_VERSION"
 
-          # Update RubyGems and install the exact matching bundler; fail if we cannot install it
-          gem update --system --no-document || true
-          gem install bundler -v "$BUNDLER_VERSION" --no-document || { echo "Failed to install bundler $BUNDLER_VERSION"; exit 1; }
-
-          # Verify bundler
-          bundle _${BUNDLER_VERSION}_ --version || true
-
           # Ensure linux platform exists in the lockfile so native gems can be resolved
           bundle lock --add-platform x86_64-linux || true
 
@@ -125,7 +119,7 @@ jobs:
           bundle config set --local without 'development test'
 
           # Install gems (verbose for diagnostic)
-          if ! bundle _${BUNDLER_VERSION}_ install --jobs 4 --retry 3 --path vendor/bundle --verbose; then
+          if ! bundle install --jobs 4 --retry 3 --path vendor/bundle --verbose; then
             echo "=== BUNDLE INSTALL FAILED: printing diagnostics ==="
             echo "=== Gemfile.lock (tail): ==="
             tail -n 200 Gemfile.lock || true
@@ -137,7 +131,7 @@ jobs:
           fi
 
           export JEKYLL_ENV=production
-          bundle _${BUNDLER_VERSION}_ exec jekyll build
+          bundle exec jekyll build
       - name: Purge unused CSS 🧹
         run: |
           npm install -g purgecss

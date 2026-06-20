@@ -93,10 +93,21 @@ jobs:
           value: ${{ github.repository }}
       - name: Install and Build 🔧
         run: |
-          sudo apt-get update && sudo apt-get install -y imagemagick
+          sudo apt-get update && sudo apt-get install -y imagemagick build-essential libssl-dev zlib1g-dev libxml2-dev libxslt1-dev
           pip3 install --upgrade nbconvert
+
+          # Install Bundler 2.x compatible with lockfile (adjust version if needed)
+          gem install bundler -v "2.4.13" || gem install bundler
+          bundle _2.4.13_ --version || true
+
+          # Ensure linux platform is present in lockfile so CI can resolve native gems
+          bundle lock --add-platform x86_64-linux
+
+          # Install gems into vendor/bundle to avoid system dir and improve caching
+          bundle _2.4.13_ install --jobs 4 --retry 3 --path vendor/bundle --verbose
+
           export JEKYLL_ENV=production
-          bundle exec jekyll build
+          bundle _2.4.13_ exec jekyll build
       - name: Purge unused CSS 🧹
         run: |
           npm install -g purgecss

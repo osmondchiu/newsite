@@ -16,11 +16,11 @@ This includes submissions to parliamentary inquiries, engagement with stakeholde
 
 ## Parliamentary and Inquiry Work
 
-### Freedom of Information Amendment Bill Inquiry (2025)
-Submission on behalf of the Community and Public Sector Union (CPSU), advocating reforms to support FOI staff capacity and improve system functionality. Recommended legislative changes to enable passage of non-contentious elements while revisiting more complex provisions.
+### Procurement practices of government agencies in New South Wales and its impact on the social development of the people of New South Wales Inquiry (2024)
+Submission advocating reforms to improve procurement in New South Wales. Recommended legislative changes to lift transparency and accountability to best practice, adopt social procurement policies and a community wealth building framework.
 
-### Workforce and Employment Services Reform (2023–2025)
-Policy work and analysis examining the effectiveness of outsourced employment services and the case for rebuilding public sector delivery capability.
+### Foreign Interference Through Social Media Inquiry (2020)
+Submission highlighted how misinformation spreads on WeChat and how it is used for disinformation by domestic political actors.
 
 ---
 
@@ -52,7 +52,9 @@ I regularly participate in public policy discussions, conferences, and community
 My policy work has informed public debate through commentary and analysis across a range of outlets, contributing to discussions on:
 
 - the size and capability of the public sector  
-- economic policy and workforce reform  
+- economic policy and workforce reform
+- social democracy and Australian politics
+- the Chinese diaspora in Australia 
 - multiculturalism and representation  
 
 For selected commentary, see the **Publications** page.

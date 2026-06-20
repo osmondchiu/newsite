@@ -85,7 +85,6 @@ al_folio:
 
 navbar_fixed: true
 footer_fixed: false
-back_to_top: true
 search_enabled: true
 
 # Dimensions

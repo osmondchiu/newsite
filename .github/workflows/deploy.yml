@@ -111,8 +111,9 @@ jobs:
           BUNDLER_VERSION=${BUNDLER_VERSION:-"4.0.6"}
           echo "Using bundler version: $BUNDLER_VERSION"
 
-          # Ensure linux platform exists in the lockfile so native gems can be resolved
-          bundle lock --add-platform x86_64-linux --add-platform arm64-darwin --add-platform x86_64-darwin || true
+          # Remove unnecessary platforms and keep only x86_64-linux-gnu for this runner
+          bundle lock --remove-platform aarch64-linux-gnu aarch64-linux-musl arm-linux-gnu arm-linux-gnueabihf arm-linux-musl arm-linux-musleabihf arm64-darwin x86_64-darwin x86_64-linux-musl || true
+          bundle lock --add-platform x86_64-linux-gnu || true
 
           # Configure bundler to install into vendor/bundle and skip dev/test groups
           bundle config set --local path 'vendor/bundle'
